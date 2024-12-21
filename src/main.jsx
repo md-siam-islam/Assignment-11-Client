@@ -12,6 +12,7 @@ import Login from "./Page/Login/Login.jsx";
 import Signup from "./Page/Signup/Signup.jsx";
 import { ToastContainer } from 'react-toastify';
 import ErrorPage from "./Components/ErrorPage/ErrorPage.jsx";
+import HomeSection from "./HomeSection/HomeSection.jsx";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
     element: <Homelayout></Homelayout>,
     errorElement:<ErrorPage></ErrorPage>,
     children: [
+      {
+        path:"/",
+        element:<HomeSection></HomeSection>
+      },
       {
         path: "/allbooks",
         element: <Allbooks></Allbooks>,
