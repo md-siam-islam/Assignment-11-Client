@@ -10,6 +10,9 @@ import Homelayout from './Components/Homelayout/Homelayout.jsx';
 import Allbooks from './Page/Allbooks/Allbooks.jsx';
 import AddBook from './Page/AddBook/AddBook.jsx';
 import BrrrodedBooks from './Page/BrowserBooks/BrrrodedBooks.jsx';
+import AuthProvider from './Components/Home/AuthProvider/AuthProvider.jsx';
+import Login from './Page/Login/Login.jsx';
+import Signup from './Page/Signup/Signup.jsx';
 
 
 
@@ -32,9 +35,21 @@ const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path:"/login",
+    element:<Login></Login>
+  },
+  {
+    path:'/signup',
+    element:<Signup></Signup>
+  },
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+
+    <AuthProvider>
      <RouterProvider router={router} />
+    </AuthProvider>
+
   </StrictMode>,
 )
