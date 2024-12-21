@@ -18,7 +18,7 @@ const Signup = () => {
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword)
     }
-    const {signUp,setUser,userInfo} = useContext(Authcontext)
+    const {signUp,setUser,userInfo,user} = useContext(Authcontext)
 
     const handlesignup = (event) => {
         event.preventDefault();
@@ -28,9 +28,7 @@ const Signup = () => {
         const password = event.target.password.value;
         const tram = event.target.tram.checked;
 
-        const signupData = {
-            name,photo,email,password
-        }
+      
 
         if(password.length<6){
             return toast.error("Password must be at least 6 characters long");
@@ -50,8 +48,8 @@ const Signup = () => {
         signUp(email,password)
         .then((userCredential) => {
             const user = userCredential.user
-            setUser(user)
             userInfo({ displayName: name, photoURL: photo })
+            setUser(user)
             event.target.reset();
             navigate("/")
            return toast.success("Registration successful!");
