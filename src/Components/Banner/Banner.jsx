@@ -1,8 +1,9 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
 import img1 from "../../../src/assets/image/library-lovers-month.jpg";
 import img2 from "../../../src/assets/image/books-new-york-public-library-susan-candelario.jpg";
@@ -11,15 +12,20 @@ import img4 from "../../../src/assets/image/5ea3382f2392c90c453f4b3c_vienna (640
 import img6 from "../../../src/assets/image/pexels-technobulka-2908984.jpg";
 import img5 from "../../../src/assets/image/lots-of-books-on-the-table-in-front-of-the-library-shelves-generative-ai-photo.jpg";
 
-
 const Banner = () => {
   return (
     <div className="w-11/12 mx-auto  my-14">
       <Swiper
-        spaceBetween={30} 
+        spaceBetween={30}
         slidesPerView={1}
-        autoplay={{ delay: 2000 }}
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        navigation
+        pagination={{ clickable: true }}
+        scrollbar={{ draggable: true }}
+        autoplay={{ delay: 1000 }}
         loop={true}
+        onSwiper={(swiper) => console.log(swiper)}
+        onSlideChange={() => console.log('slide change')}
       >
         <SwiperSlide>
           <div className="w-full h-full relative">
