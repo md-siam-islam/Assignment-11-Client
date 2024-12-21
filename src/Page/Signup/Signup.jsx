@@ -18,7 +18,7 @@ const Signup = () => {
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword)
     }
-    const {signUp,setUser,userInfo,user} = useContext(Authcontext)
+    const {signUp,setUser,userInfo,googleLogin} = useContext(Authcontext)
 
     const handlesignup = (event) => {
         event.preventDefault();
@@ -65,7 +65,25 @@ const Signup = () => {
     }
 
     const googlelogin = () => {
+        googleLogin()
+        googleLogin()
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        setUser(user);
+        navigate("/");
+        return toast.success("Login with Google Successfull");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
 
+        const email = error.customData.email;
+
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        return toast.error(errorMessage);
+      });
     }
 
     return (

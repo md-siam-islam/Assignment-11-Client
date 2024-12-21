@@ -11,11 +11,13 @@ import AuthProvider from "./Components/Home/AuthProvider/AuthProvider.jsx";
 import Login from "./Page/Login/Login.jsx";
 import Signup from "./Page/Signup/Signup.jsx";
 import { ToastContainer } from 'react-toastify';
+import ErrorPage from "./Components/ErrorPage/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Homelayout></Homelayout>,
+    errorElement:<ErrorPage></ErrorPage>,
     children: [
       {
         path: "/allbooks",

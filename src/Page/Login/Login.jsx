@@ -10,7 +10,7 @@ import { Authcontext } from "../../Components/Home/AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 
 const Login = () => {
-    const {Login,setUser} = useContext(Authcontext)
+    const {Login,setUser,googleLogin} = useContext(Authcontext)
     const [showPassword,setShowPassword] = useState(false)
 
     const navigate = useNavigate()
@@ -44,7 +44,25 @@ const Login = () => {
     }
 
     const handlesignin = () => {
+        googleLogin()
+        googleLogin()
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        setUser(user);
+        navigate("/");
+        return toast.success("Login with Google Successfull");
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
 
+        const email = error.customData.email;
+
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        return toast.error(errorMessage);
+      });
     }
 
     const togglePasswordVisibility = () => {
