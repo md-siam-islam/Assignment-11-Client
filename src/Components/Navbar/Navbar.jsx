@@ -3,11 +3,9 @@ import { NavLink, Link } from 'react-router-dom';
 import { Authcontext } from '../Home/AuthProvider/AuthProvider';
 
 const Navbar = () => {
-  const { user } = useContext(Authcontext);
+  const { user,signoutUser } = useContext(Authcontext);
 
-  const signout = () => {
-    
-  }
+  
 
   return (
     <div className="navbar bg-[#00335c] shadow-md justify-between px-4 font-font">
@@ -115,7 +113,7 @@ const Navbar = () => {
                   <>
                     <p className="font-bold mb-2">{user.displayName}</p>
                     <Link
-                      onClick={signout}
+                      onClick={signoutUser}
                       className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-1 rounded"
                     >
                       Logout
@@ -127,7 +125,7 @@ const Navbar = () => {
               </div>
             </div>
             <Link
-              onClick={signout}
+              onClick={signoutUser}
               className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-3 rounded"
             >
               Logout
