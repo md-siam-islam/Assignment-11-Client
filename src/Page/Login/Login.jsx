@@ -1,15 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import animation from "../../../src/assets/Animation_image/Animation - 1734200574345.json"
 import Lottie from "lottie-react";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
+import { Authcontext } from "../../Components/Home/AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
-
+    const {Login,setUser} = useContext(Authcontext)
     const [showPassword,setShowPassword] = useState(false)
+
+    const navigate = useNavigate()
 
 
     const handleLogin = (event) => {
@@ -20,6 +24,22 @@ const Login = () => {
 
         const userData = {email,password}
         console.log(userData);
+
+        Login(email,password)
+        .then((userCredential)=> {
+            const user = userCredential.user
+            setUser(user)
+            event.target.reset()
+            navigate("/")
+           return toast.success("Login Successfull")
+
+        })
+
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message || "Something went wrong. Please try again.";
+            return toast.error(errorMessage);
+          });
 
     }
 

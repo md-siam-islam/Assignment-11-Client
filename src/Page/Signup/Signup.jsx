@@ -18,7 +18,7 @@ const Signup = () => {
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword)
     }
-    const {signUp,setUser} = useContext(Authcontext)
+    const {signUp,setUser,userInfo} = useContext(Authcontext)
 
     const handlesignup = (event) => {
         event.preventDefault();
@@ -51,10 +51,17 @@ const Signup = () => {
         .then((userCredential) => {
             const user = userCredential.user
             setUser(user)
+            userInfo({ displayName: name, photoURL: photo })
             event.target.reset();
             navigate("/")
-            toast.success("Registration successful!");
+           return toast.success("Registration successful!");
         })
+
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message || "Something went wrong. Please try again.";
+            return toast.error(errorMessage);
+          });
 
         
     }
