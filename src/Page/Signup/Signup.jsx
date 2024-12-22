@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
 import Navbar from '../../Components/Navbar/Navbar';
 import Footer from '../../Components/Footer/Footer';
@@ -14,6 +14,7 @@ const Signup = () => {
 
     const [showPassword,setShowPassword] = useState(false)
     const navigate = useNavigate()
+    const location = useLocation()
 
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword)
@@ -51,7 +52,7 @@ const Signup = () => {
             userInfo({ displayName: name, photoURL: photo })
             setUser(user)
             event.target.reset();
-            navigate("/")
+            navigate(location.state ||"/")
            return toast.success("Registration successful!");
         })
 

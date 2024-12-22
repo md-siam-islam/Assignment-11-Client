@@ -101,6 +101,7 @@ const Selfhim = () => {
               Details
             </button>
           </div>
+          
         </div>
       </div>
 

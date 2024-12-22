@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import animation from "../../../src/assets/Animation_image/Animation - 1734200574345.json"
 import Lottie from "lottie-react";
@@ -12,6 +12,8 @@ import { toast } from "react-toastify";
 const Login = () => {
     const {Login,setUser,googleLogin} = useContext(Authcontext)
     const [showPassword,setShowPassword] = useState(false)
+
+    const location = useLocation()
 
     const navigate = useNavigate()
 
@@ -30,7 +32,7 @@ const Login = () => {
             const user = userCredential.user
             setUser(user)
             event.target.reset()
-            navigate("/")
+            navigate(location.state ||"/")
            return toast.success("Login Successfull")
 
         })

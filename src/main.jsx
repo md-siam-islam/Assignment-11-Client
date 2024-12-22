@@ -18,6 +18,8 @@ import ScienceBooks from "./Page/ScienceBooks/ScienceBooks.jsx";
 import History from "./Page/History/History.jsx";
 import Selfhim from "./Page/Selfhim/Selfhim.jsx";
 import Updatepage from "./Page/Update/Updatepage.jsx";
+import CategoriesBook from "./Page/CategoriesBook/CategoriesBook.jsx";
+import PrivetRoute from "./PrivetRoute/PrivetRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,15 +33,15 @@ const router = createBrowserRouter([
       },
       {
         path: "/allbooks",
-        element: <Allbooks></Allbooks>,
+        element: <PrivetRoute><Allbooks></Allbooks></PrivetRoute>,
       },
       {
         path: "/addbook",
-        element: <AddBook></AddBook>,
+        element: <PrivetRoute><AddBook></AddBook></PrivetRoute>,
       },
       {
         path: "/borodedBooks",
-        element: <BrrrodedBooks></BrrrodedBooks>,
+        element: <PrivetRoute><BrrrodedBooks></BrrrodedBooks></PrivetRoute>,
       },
     ],
   },
@@ -52,24 +54,12 @@ const router = createBrowserRouter([
     element: <Signup></Signup>,
   },
   {
-    path:'/fiction',
-    element:<Fiction></Fiction>
-  },
-  {
-    path:'/science',
-    element:<ScienceBooks></ScienceBooks>
-  },
-  {
-    path:"/history",
-    element:<History></History>
-  },
-  {
-    path:'selfhim',
-    element:<Selfhim></Selfhim>
-  },
-  {
     path:'/update/:id',
     element:<Updatepage></Updatepage>
+  },
+  {
+    path:'/categoriesbook/:category',
+    element:<CategoriesBook></CategoriesBook>
   }
 ]);
 createRoot(document.getElementById("root")).render(
