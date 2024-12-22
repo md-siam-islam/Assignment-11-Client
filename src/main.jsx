@@ -17,6 +17,7 @@ import Fiction from "./Page/FIction/Fiction.jsx";
 import ScienceBooks from "./Page/ScienceBooks/ScienceBooks.jsx";
 import History from "./Page/History/History.jsx";
 import Selfhim from "./Page/Selfhim/Selfhim.jsx";
+import Updatepage from "./Page/Update/Updatepage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
   {
     path:'selfhim',
     element:<Selfhim></Selfhim>
+  },
+  {
+    path:'/update/:id',
+    element:<Updatepage></Updatepage>
   }
 ]);
 createRoot(document.getElementById("root")).render(
