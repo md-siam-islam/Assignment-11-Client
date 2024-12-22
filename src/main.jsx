@@ -15,6 +15,8 @@ import ErrorPage from "./Components/ErrorPage/ErrorPage.jsx";
 import HomeSection from "./HomeSection/HomeSection.jsx";
 import Fiction from "./Page/FIction/Fiction.jsx";
 import ScienceBooks from "./Page/ScienceBooks/ScienceBooks.jsx";
+import History from "./Page/History/History.jsx";
+import Selfhim from "./Page/Selfhim/Selfhim.jsx";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +57,14 @@ const router = createBrowserRouter([
   {
     path:'/science',
     element:<ScienceBooks></ScienceBooks>
+  },
+  {
+    path:"/history",
+    element:<History></History>
+  },
+  {
+    path:'selfhim',
+    element:<Selfhim></Selfhim>
   }
 ]);
 createRoot(document.getElementById("root")).render(

@@ -61,9 +61,9 @@ const BookCategories = () => {
           Dive into the stories of the past.
           </p>
 
-          <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+          <Link to={'/history'} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
             Explore History
-          </button>
+          </Link>
         </div>
 
         <div className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition">
@@ -78,9 +78,9 @@ const BookCategories = () => {
           Books to inspire and improve your life.
           </p>
 
-          <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+          <Link to={"/selfhim"} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
             Explore Self-Help
-          </button>
+          </Link >
         </div>
 
       </div>
