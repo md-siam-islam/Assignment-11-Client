@@ -13,6 +13,7 @@ import Signup from "./Page/Signup/Signup.jsx";
 import { ToastContainer } from 'react-toastify';
 import ErrorPage from "./Components/ErrorPage/ErrorPage.jsx";
 import HomeSection from "./HomeSection/HomeSection.jsx";
+import Fiction from "./Page/FIction/Fiction.jsx";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
     path: "/signup",
     element: <Signup></Signup>,
   },
+  {
+    path:'/fiction',
+    element:<Fiction></Fiction>
+  }
 ]);
 createRoot(document.getElementById("root")).render(
   <StrictMode>
