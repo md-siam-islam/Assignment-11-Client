@@ -14,6 +14,7 @@ import { ToastContainer } from 'react-toastify';
 import ErrorPage from "./Components/ErrorPage/ErrorPage.jsx";
 import HomeSection from "./HomeSection/HomeSection.jsx";
 import Fiction from "./Page/FIction/Fiction.jsx";
+import ScienceBooks from "./Page/ScienceBooks/ScienceBooks.jsx";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
   {
     path:'/fiction',
     element:<Fiction></Fiction>
+  },
+  {
+    path:'/science',
+    element:<ScienceBooks></ScienceBooks>
   }
 ]);
 createRoot(document.getElementById("root")).render(

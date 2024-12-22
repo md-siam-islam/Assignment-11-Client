@@ -33,7 +33,7 @@ const Fiction = () => {
           <div className="flex items-center mb-4">
             <ReactStars
               count={5}
-              value="4.5"
+              value={4.5}
               size={24}
               edit={false}
               activeColor="#ffd700"
@@ -58,7 +58,7 @@ const Fiction = () => {
           <div className="flex items-center mb-4">
             <ReactStars
               count={5}
-              value="4.8"
+              value={4.8}
               size={24}
               edit={false}
               activeColor="#ffd700"
@@ -83,7 +83,7 @@ const Fiction = () => {
           <div className="flex items-center mb-4">
             <ReactStars
               count={5}
-              value="4.8"
+              value={4.7}
               size={24}
               edit={false}
               activeColor="#ffd700"

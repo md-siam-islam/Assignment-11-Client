@@ -44,9 +44,9 @@ const BookCategories = () => {
           Discover the wonders of science and technology.
           </p>
 
-          <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+          <Link to={'/science'} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
             Explore Science
-          </button>
+          </Link>
         </div>
 
         <div className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition">
