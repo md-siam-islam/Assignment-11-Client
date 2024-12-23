@@ -20,7 +20,7 @@ const BookDetails = () => {
 
   const Handledetails = () => {
     axios
-      .get(`http://localhost:5000/book/${id}`)
+      .get(`https://assignment-11-phi-hazel.vercel.app/book/${id}`)
       .then((res) => {
         setData(res.data);
         setLoading(false);
@@ -57,7 +57,7 @@ const BookDetails = () => {
     console.log(BorrowData);
 
     axios
-      .post("http://localhost:5000/borrowBook", BorrowData)
+      .post("https://assignment-11-phi-hazel.vercel.app/borrowBook", BorrowData)
       .then((res) => {
         if (res.data.insertedId) {
           toast.success("Borrow Book Add Success");

@@ -6,45 +6,46 @@ import axios from "axios";
 import { Helmet } from "react-helmet-async";
 
 const AddBook = () => {
-  
-
-  
-  const handleSubmit =  (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    const photo =e.target.image.value
-    
-    const name = e.target.name.value
-    const quantity = e.target.quantity.value
-    const author = e.target.author.value 
-    const category = e.target.category.value
-    const description = e.target.description.value 
+    const photo = e.target.image.value;
 
-    const rating = e.target.rating.value 
+    const name = e.target.name.value;
+    const quantity = e.target.quantity.value;
+    const author = e.target.author.value;
+    const category = e.target.category.value;
+    const description = e.target.description.value;
+
+    const rating = e.target.rating.value;
 
     const Bookdata = {
-        photo,name,quantity,author,description,rating,category
-    }
+      photo,
+      name,
+      quantity,
+      author,
+      description,
+      rating,
+      category,
+    };
 
     console.log(Bookdata);
 
-    axios.post('http://localhost:5000/book',Bookdata)
-    .then((res) => {
+    axios
+      .post("https://assignment-11-phi-hazel.vercel.app/book", Bookdata)
+      .then((res) => {
         if (res.data.insertedId) {
-            toast.success("Book added successfully!");
-            e.target.reset();
+          toast.success("Book added successfully!");
+          e.target.reset();
         } else {
-            toast.error("Failed to add book. Try again.");
+          toast.error("Failed to add book. Try again.");
         }
         console.log("Response:", res.data);
-    })
-    .catch((err) => {
+      })
+      .catch((err) => {
         console.error("Error:", err);
         toast.error("Something went wrong!");
-    });
-    
-  
-   
+      });
   };
 
   return (
@@ -54,24 +55,23 @@ const AddBook = () => {
       </Helmet>
       <h2 className="text-3xl font-bold text-center mb-6">Add New Book</h2>
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
-        
-        
         <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">Image URL</label>
+          <label className="block text-gray-700 font-medium mb-2">
+            Image URL
+          </label>
           <input
             type="text"
             name="image"
-            
             placeholder="Enter image URL"
             className="w-full p-2 border border-gray-300 rounded"
             required
           />
         </div>
 
-       
-       
         <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">Book Name</label>
+          <label className="block text-gray-700 font-medium mb-2">
+            Book Name
+          </label>
           <input
             type="text"
             name="name"
@@ -81,10 +81,10 @@ const AddBook = () => {
           />
         </div>
 
-      
-      
         <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">Quantity</label>
+          <label className="block text-gray-700 font-medium mb-2">
+            Quantity
+          </label>
           <input
             type="number"
             name="quantity"
@@ -94,10 +94,10 @@ const AddBook = () => {
           />
         </div>
 
-       
-       
         <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">Author Name</label>
+          <label className="block text-gray-700 font-medium mb-2">
+            Author Name
+          </label>
           <input
             type="text"
             name="author"
@@ -109,7 +109,9 @@ const AddBook = () => {
 
         {/* Category */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">Category</label>
+          <label className="block text-gray-700 font-medium mb-2">
+            Category
+          </label>
           <select
             name="category"
             className="w-full p-2 border border-gray-300 rounded"
@@ -125,7 +127,9 @@ const AddBook = () => {
 
         {/* Short Description */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-medium mb-2">Short Description</label>
+          <label className="block text-gray-700 font-medium mb-2">
+            Short Description
+          </label>
           <textarea
             name="description"
             placeholder="Enter a short description"

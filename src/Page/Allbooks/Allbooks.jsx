@@ -6,24 +6,23 @@ import { Helmet } from "react-helmet-async";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState(true); 
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/book")
+      .get("https://assignment-11-phi-hazel.vercel.app/book")
       .then((res) => {
         setBooks(res.data);
-        setLoading(false); 
+        setLoading(false);
       })
       .catch((err) => {
         console.error("Error loading books:", err);
-        setLoading(false); 
+        setLoading(false);
         toast.error("Failed to load books.");
       });
   }, []);
 
-  
   if (loading) {
     return <div>Loading books...</div>;
   }
@@ -34,7 +33,6 @@ const AllBooks = () => {
 
   return (
     <div className="w-10/12 mx-auto my-10">
-
       <Helmet>
         <title>All Books</title>
       </Helmet>
@@ -51,8 +49,10 @@ const AllBooks = () => {
             <p>Author: {book.author}</p>
             <p>Category: {book.category}</p>
             <p className="mb-5">Rating: {book.rating}</p>
-            <Link to={`/update/${book._id}`}
-              className="bg-blue-500 text-white py-1 px-3 rounded mt-2 hover:bg-blue-600 ">
+            <Link
+              to={`/update/${book._id}`}
+              className="bg-blue-500 text-white py-1 px-3 rounded mt-2 hover:bg-blue-600 "
+            >
               Update
             </Link>
           </div>
