@@ -8,6 +8,7 @@ import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import { Authcontext } from "../../Components/Home/AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
     const {Login,setUser,googleLogin} = useContext(Authcontext)
@@ -73,6 +74,9 @@ const Login = () => {
 
     return (
         <div className="">
+          <Helmet>
+            <title>Login Page</title>
+          </Helmet>
             <Navbar></Navbar>
 
         <div className='w-11/12 mx-auto flex justify-center items-center lg:flex-row flex-col my-14'>

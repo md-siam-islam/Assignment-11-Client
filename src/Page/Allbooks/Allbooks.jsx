@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
@@ -33,6 +34,10 @@ const AllBooks = () => {
 
   return (
     <div className="w-10/12 mx-auto my-10">
+
+      <Helmet>
+        <title>All Books</title>
+      </Helmet>
       <h2 className="text-3xl font-bold text-center mb-6">All Books</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {books.map((book) => (

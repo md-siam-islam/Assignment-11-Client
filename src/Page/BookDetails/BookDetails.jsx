@@ -3,6 +3,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Authcontext } from "../../Components/Home/AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -44,14 +45,19 @@ const BookDetails = () => {
       Authprname: data.author,
       Category: data.category,
       Discerption: data.description,
-      Rating: data.rating,
+      Bookid:data._id
     };
+
+    console.log(BorrowData);
 
     axios
       .post("http://localhost:5000/borrowBook", BorrowData)
       .then((res) => {
         if (res.data.insertedId) {
           toast.success("Borrow Book Add Success");
+
+          const modal = document.getElementById('my_modal_1')
+          modal.close();
         } else {
           toast.error("Failed to add a Borrow book. Try again.");
         }
@@ -67,6 +73,9 @@ const BookDetails = () => {
 
   return (
     <div className="w-11/12 mx-auto my-20 max-w-4xl bg-gray-400 shadow-lg rounded-lg p-6">
+        <Helmet>
+            <title>Book Details || {data.name}</title>
+        </Helmet>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Book Image */}
         <div className="flex justify-center">
@@ -102,11 +111,7 @@ const BookDetails = () => {
           </p>
           <button
             onClick={() => document.getElementById("my_modal_1").showModal()}
-            className={`py-2 px-4 rounded ${
-              data.quantity === 0
-                ? "bg-gray-400 cursor-not-allowed"
-                : "bg-blue-500 hover:bg-blue-600 text-white"
-            }`}
+            className= "bg-blue-500 hover:bg-blue-600 text-white px-5 rounded"
           >
             Borrow
           </button>

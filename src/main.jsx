@@ -16,6 +16,8 @@ import Updatepage from "./Page/Update/Updatepage.jsx";
 import CategoriesBook from "./Page/CategoriesBook/CategoriesBook.jsx";
 import PrivetRoute from "./PrivetRoute/PrivetRoute.jsx";
 import BookDetails from "./Page/BookDetails/BookDetails.jsx";
+import { Helmet, HelmetProvider } from 'react-helmet-async';
+
 
 const router = createBrowserRouter([
   {
@@ -59,14 +61,16 @@ const router = createBrowserRouter([
   },
   {
     path:'/details/:id',
-    element:<BookDetails></BookDetails>
+    element:<PrivetRoute><BookDetails></BookDetails></PrivetRoute>
   }
 ]);
 createRoot(document.getElementById("root")).render(
   <StrictMode>
+    <HelmetProvider>
     <ToastContainer />
     <AuthProvider>
       <RouterProvider router={router} />
     </AuthProvider>
+    </HelmetProvider>
   </StrictMode>
 );

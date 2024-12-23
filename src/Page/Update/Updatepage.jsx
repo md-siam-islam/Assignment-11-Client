@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const Updatepage = () => {
   const { id } = useParams(); 
@@ -75,6 +76,9 @@ const Updatepage = () => {
 
   return (
     <div className="max-w-3xl mx-auto my-10 p-6 bg-white rounded-lg shadow-lg">
+      <Helmet>
+        <title>Book Update || {book.name}</title>
+      </Helmet>
       <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
         Update Book: {book.name}
       </h1>

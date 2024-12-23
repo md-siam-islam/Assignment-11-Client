@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify"; // Toast notification
 import { auth } from "../../Firebase/Firebaseinit";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 const AddBook = () => {
   
@@ -48,6 +49,9 @@ const AddBook = () => {
 
   return (
     <div className="w-10/12 mx-auto my-20">
+      <Helmet>
+        <title>Add Book</title>
+      </Helmet>
       <h2 className="text-3xl font-bold text-center mb-6">Add New Book</h2>
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md">
         

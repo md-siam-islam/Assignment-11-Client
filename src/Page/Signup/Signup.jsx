@@ -9,6 +9,7 @@ import Lottie from 'lottie-react';
 import { Authcontext } from '../../Components/Home/AuthProvider/AuthProvider';
 import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from 'react-helmet-async';
 
 const Signup = () => {
 
@@ -89,6 +90,9 @@ const Signup = () => {
 
     return (
         <div>
+          <Helmet>
+            <title>Register page</title>
+          </Helmet>
             <Navbar></Navbar>
             <div className="flex justify-center items-center my-20 flex-col lg:flex-row">
         <div className="min-h-screen flex justify-center items-center my-14 w-full">
