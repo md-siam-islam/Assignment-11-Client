@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState(true); // Add loading state
+  const [loading, setLoading] = useState(true); 
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,16 +13,16 @@ const AllBooks = () => {
       .get("http://localhost:5000/book")
       .then((res) => {
         setBooks(res.data);
-        setLoading(false); // Set loading to false when data is fetched
+        setLoading(false); 
       })
       .catch((err) => {
         console.error("Error loading books:", err);
-        setLoading(false); // Set loading to false in case of error
+        setLoading(false); 
         toast.error("Failed to load books.");
       });
   }, []);
 
-  // If books are still loading, show a loading message
+  
   if (loading) {
     return <div>Loading books...</div>;
   }

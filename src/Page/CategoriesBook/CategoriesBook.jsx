@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 
 const CategoriesBook = () => {
@@ -49,9 +49,9 @@ const CategoriesBook = () => {
               />
               <span className="ml-2 text-gray-600">{book.rating}</span>
             </div>
-            <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
+            <Link to={`/details/${book._id}`} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition">
               Details
-            </button>
+            </Link>
           </div>
         ))}
       </div>
