@@ -70,9 +70,14 @@ const BookDetails = () => {
         }
       })
 
-      .catch((err) => {
-        console.error("Error:", err);
-        toast.error("Something went wrong!");
+      .catch((error) => {
+        const message = error.message
+       
+       if(message){
+        toast.error('Sorry You have alredy Borrow book')
+        const modal = document.getElementById('my_modal_1')
+        modal.close();
+       }
       });
 
     console.log(BorrowData);
