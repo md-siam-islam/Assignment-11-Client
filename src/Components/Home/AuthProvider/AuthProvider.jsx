@@ -40,34 +40,37 @@ const AuthProvider = ({children}) => {
 
 
     useEffect(() => {
-        const data = onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser || null);
+        const fetchData = async () => {
+            const data = onAuthStateChanged(auth, async (currentUser) => {
+                setUser(currentUser || null);
+        
+                if (currentUser?.email) {
+                    const email = { email: currentUser.email };
+        
+                    try {
+                        const res = await axios.post('http://localhost:5000/jwt', email, { withCredentials: true });
+                        console.log("Token generated:", res.data.token);
+                    } catch (err) {
+                        console.error("Token generation error:", err.response?.data || err.message);
+                    }
+                } else {
+                    try {
+                        const res = await axios.post("http://localhost:5000/logout", {}, { withCredentials: true });
+                        console.log("Logout:", res.data);
+                    } catch (err) {
+                        console.error("Logout error:", err.response?.data || err.message);
+                    }
+                }
+        
+                setLoading(false);
+            });
     
-            if (currentUser?.email) {
-                const email = { email: currentUser.email };
-    
-                axios.post('http://localhost:5000/jwt', email, { withCredentials: true })
-                    .then(res => {
-                        console.log("Login successful:", res.data);
-                        setLoading(false);
-                    })
-                    .catch(err => {
-                        console.error("JWT Error:", err.response.data);
-                        setLoading(false);
-                    });
-            } else {
-                axios.post("http://localhost:5000/logout",{},{withCredentials:true})
-
-                .then(res => {console.log(Logout,res.data)
-                    setLoading(false);
-                })
-            }
-        });
-    
-        return () => {
-            data();
+            return data;
         };
+    
+        fetchData();
     }, []);
+    
     const getAuth = {
         user,
         setUser,

@@ -16,10 +16,10 @@ const navigate = useNavigate()
         }) , error => {
 
             if(error.status === 401 || error.status === 403){
-                signoutUser()
-                .then(res => {
+                signoutUser().then(res => {
                     console.log(res);
                     navigate('/login')
+                
                 })
             }
             return Promise.reject(error)
