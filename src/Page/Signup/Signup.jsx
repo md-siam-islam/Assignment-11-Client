@@ -68,22 +68,16 @@ const Signup = () => {
 
     const googlelogin = () => {
         googleLogin()
-        googleLogin()
-      .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
+        .then((result) => {
         const user = result.user;
         setUser(user);
-        navigate("/");
+       if(user?.email){
+         navigate("/");
+       }
         return toast.success("Login with Google Successfull");
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-
-        const email = error.customData.email;
-
-        const credential = GoogleAuthProvider.credentialFromError(error);
         return toast.error(errorMessage);
       });
     }

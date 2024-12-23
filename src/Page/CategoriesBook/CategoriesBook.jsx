@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 import { Helmet } from "react-helmet-async";
+import { div } from "motion/react-client";
+import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
 
 const CategoriesBook = () => {
   const { category } = useParams();
@@ -14,12 +17,16 @@ const CategoriesBook = () => {
       .then((data) => {
         console.log(data);
         setBooks(data);
+
         setLoading(false);
       })
       .catch((err) => console.error("Error fetching category data:", err));
   }, [category]);
 
   return (
+
+    <div>
+    <Navbar></Navbar>
     <div className="my-14 w-11/12 mx-auto">
         <Helmet>
             <title>Category Book</title>
@@ -62,6 +69,8 @@ const CategoriesBook = () => {
         })}
       </div>
 
+    </div>
+    <Footer></Footer>
     </div>
   );
 };

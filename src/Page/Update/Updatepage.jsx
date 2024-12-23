@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
+import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
 
 const Updatepage = () => {
   const { id } = useParams(); 
@@ -75,10 +77,13 @@ const Updatepage = () => {
   }
 
   return (
-    <div className="max-w-3xl mx-auto my-10 p-6 bg-white rounded-lg shadow-lg">
+    <div>
+      <Navbar></Navbar>
       <Helmet>
         <title>Book Update || {book.name}</title>
       </Helmet>
+    <div className="max-w-3xl mx-auto my-10 p-6 bg-white rounded-lg shadow-lg">
+      
       <h1 className="text-2xl font-bold text-center text-gray-800 mb-6">
         Update Book: {book.name}
       </h1>
@@ -144,6 +149,8 @@ const Updatepage = () => {
           </button>
         </div>
       </form>
+    </div>
+    <Footer></Footer>
     </div>
   );
 };

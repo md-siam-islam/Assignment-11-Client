@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { Authcontext } from "../../Components/Home/AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
+import Navbar from "../../Components/Navbar/Navbar";
+import Footer from "../../Components/Footer/Footer";
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -16,17 +18,21 @@ const BookDetails = () => {
 
   console.log(user);
 
-  useEffect(() => {
+  const Handledetails = () => {
     axios
-      .get(`http://localhost:5000/book/${id}`)
-      .then((res) => {
-        setData(res.data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching book data:", err);
-        setLoading(false);
-      });
+    .get(`http://localhost:5000/book/${id}`)
+    .then((res) => {
+      setData(res.data);
+      setLoading(false);
+    })
+    .catch((err) => {
+      console.error("Error fetching book data:", err);
+      setLoading(false);
+    });
+  }
+
+  useEffect(() => {
+    Handledetails()
   }, [id]);
 
   if (loading) {
@@ -58,6 +64,7 @@ const BookDetails = () => {
 
           const modal = document.getElementById('my_modal_1')
           modal.close();
+          Handledetails()
         } else {
           toast.error("Failed to add a Borrow book. Try again.");
         }
@@ -72,10 +79,14 @@ const BookDetails = () => {
   };
 
   return (
-    <div className="w-11/12 mx-auto my-20 max-w-4xl bg-gray-400 shadow-lg rounded-lg p-6">
+    <div>
         <Helmet>
             <title>Book Details || {data.name}</title>
         </Helmet>
+        <Navbar></Navbar>
+    <div className="w-11/12 mx-auto my-20 max-w-4xl bg-gray-400 shadow-lg rounded-lg p-6">
+        
+        
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Book Image */}
         <div className="flex justify-center">
@@ -180,6 +191,9 @@ const BookDetails = () => {
           </div>
         </dialog>
       </div>
+      
+    </div>
+    <Footer></Footer>
     </div>
   );
 };
