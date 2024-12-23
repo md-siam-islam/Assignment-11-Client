@@ -61,7 +61,8 @@ const CategoriesBook = () => {
               />
               <span className="ml-2 text-gray-600">{rating}</span>
             </div>
-            <Link to={`/details/${book._id}`} className="bg-blue-500 text-white py-3 px-4 rounded hover:bg-blue-600 transition">
+            <Link to={`/details/${book._id}`} className="bg-blue-500 text-white py-3 px-4 rounded hover:bg-blue-600 transition" >
+            
               Details
             </Link>
           </div>

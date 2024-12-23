@@ -3,15 +3,18 @@ import { Authcontext } from "../../Components/Home/AuthProvider/AuthProvider";
 import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import { toast } from "react-toastify";
+import Useaxios from "../../UseAxios/Useaxios";
 
 const BrrrodedBooks = () => {
   const { user } = useContext(Authcontext);
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState();
 
+  const useAxios = Useaxios()
+
   const allBooks = () => {
-    axios
-      .get(`http://localhost:5000/borrowBook?email=${user.email}`)
+    useAxios
+      .get(`/borrowBook?email=${user.email}`,{withCredentials:true})
       .then((res) => {
         setBooks(res.data);
 
@@ -29,8 +32,8 @@ const BrrrodedBooks = () => {
 
   const handleReturnBook = async (_id) => {
     try {
-      const isDeleted = await axios.delete(
-        `http://localhost:5000/returnBook/${_id}`
+      const isDeleted = await useAxios.delete(
+        `returnBook/${_id}`
       );
       if(isDeleted?.data?.deletedCount){
         allBooks()
