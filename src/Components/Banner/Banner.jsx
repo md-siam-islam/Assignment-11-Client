@@ -24,8 +24,6 @@ const Banner = () => {
         scrollbar={{ draggable: true }}
         autoplay={{ delay: 1000 }}
         loop={true}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log('slide change')}
       >
         <SwiperSlide>
           <div className="w-full h-full relative">

@@ -14,7 +14,7 @@ const BrrrodedBooks = () => {
 
   const allBooks = () => {
     useAxios
-      .get(`/borrowBook?email=${user.email}`,{withCredentials:true})
+      .get(`/borrowBook?email=${user.email}`)
       .then((res) => {
         setBooks(res.data);
 
@@ -40,7 +40,6 @@ const BrrrodedBooks = () => {
         toast.success("Book return Done")
       }
     } catch (error) {
-      console.log(error);
     }
   };
   return (

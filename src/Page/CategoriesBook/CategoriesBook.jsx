@@ -15,7 +15,6 @@ const CategoriesBook = () => {
     fetch(`https://assignment-11-phi-hazel.vercel.app/books/${category}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setBooks(data);
 
         setLoading(false);

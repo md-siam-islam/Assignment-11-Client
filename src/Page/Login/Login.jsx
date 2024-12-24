@@ -24,8 +24,6 @@ const Login = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
 
-    const userData = { email, password };
-    console.log(userData);
 
     Login(email, password)
       .then((userCredential) => {
@@ -37,7 +35,6 @@ const Login = () => {
       })
 
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage =
           error.message || "Something went wrong. Please try again.";
         return toast.error(errorMessage);
@@ -55,12 +52,7 @@ const Login = () => {
         return toast.success("Login with Google Successfull");
       })
       .catch((error) => {
-        const errorCode = error.code;
         const errorMessage = error.message;
-
-        const email = error.customData.email;
-
-        const credential = GoogleAuthProvider.credentialFromError(error);
         return toast.error(errorMessage);
       });
   };

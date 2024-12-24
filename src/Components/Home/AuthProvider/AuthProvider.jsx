@@ -59,7 +59,6 @@ const AuthProvider = ({ children }) => {
               email,
               { withCredentials: true }
             );
-            console.log("Token generated:", res.data.token);
           } catch (err) {
             console.error(
               "Token generation error:",
@@ -73,7 +72,6 @@ const AuthProvider = ({ children }) => {
               {},
               { withCredentials: true }
             );
-            console.log("Logout:", res.data);
           } catch (err) {
             console.error("Logout error:", err.response?.data || err.message);
           }

@@ -29,8 +29,6 @@ const AddBook = () => {
       category,
     };
 
-    console.log(Bookdata);
-
     axios
       .post("https://assignment-11-phi-hazel.vercel.app/book", Bookdata)
       .then((res) => {
@@ -40,7 +38,6 @@ const AddBook = () => {
         } else {
           toast.error("Failed to add book. Try again.");
         }
-        console.log("Response:", res.data);
       })
       .catch((err) => {
         console.error("Error:", err);

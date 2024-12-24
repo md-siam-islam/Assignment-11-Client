@@ -16,8 +16,6 @@ const BookDetails = () => {
 
   const { user } = useContext(Authcontext);
 
-  console.log(user);
-
   const Handledetails = () => {
     axios
       .get(`https://assignment-11-phi-hazel.vercel.app/book/${id}`)
@@ -54,7 +52,7 @@ const BookDetails = () => {
       Bookid: data._id,
     };
 
-    console.log(BorrowData);
+
 
     axios
       .post("https://assignment-11-phi-hazel.vercel.app/borrowBook", BorrowData)
@@ -79,8 +77,6 @@ const BookDetails = () => {
           modal.close();
         }
       });
-
-    console.log(BorrowData);
   };
 
   return (
