@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/allbooks",
-        element: <PrivetRoute><Allbooks></Allbooks></PrivetRoute>,
+        element: <Allbooks></Allbooks>,
       },
       {
         path: "/addbook",

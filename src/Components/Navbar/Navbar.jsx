@@ -50,6 +50,7 @@ const Navbar = () => {
             <li><NavLink to="/allbooks">All Books</NavLink></li>
             <li><NavLink to="/addbook">Add Books</NavLink></li>
             <li><NavLink to="/borodedBooks">Borrowed Books</NavLink></li>
+            <li><NavLink to="/contact">COntact Us</NavLink></li>
           </ul>
         </div>
 
@@ -75,26 +76,30 @@ const Navbar = () => {
           >
             All Books
           </NavLink>
-          <NavLink
-            to="/addbook"
-            className={({ isActive }) =>
-              isActive
-                ? "text-white font-bold border-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-700 to-blue-700 hover:from-blue-700 hover:to-blue-500 transition-all duration-300"
-                : "text-white font-bold border-2 px-4 py-2 rounded-xl"
-            }
-          >
-            Add Book
-          </NavLink>
-          <NavLink
-            to="/borodedBooks"
-            className={({ isActive }) =>
-              isActive
-                ? "text-white font-bold border-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-700 to-blue-700 hover:from-blue-700 hover:to-blue-500 transition-all duration-300"
-                : "text-white font-bold border-2 px-4 py-2 rounded-xl"
-            }
-          >
-            Borrowed Books
-          </NavLink>
+         {
+          user && user?.email ?  <NavLink
+          to="/addbook"
+          className={({ isActive }) =>
+            isActive
+              ? "text-white font-bold border-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-700 to-blue-700 hover:from-blue-700 hover:to-blue-500 transition-all duration-300"
+              : "text-white font-bold border-2 px-4 py-2 rounded-xl"
+          }
+        >
+          Add Book
+        </NavLink>  : ""
+         }
+         {
+          user && user?.email ?  <NavLink
+          to="/borodedBooks"
+          className={({ isActive }) =>
+            isActive
+              ? "text-white font-bold border-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-700 to-blue-700 hover:from-blue-700 hover:to-blue-500 transition-all duration-300"
+              : "text-white font-bold border-2 px-4 py-2 rounded-xl"
+          }
+        >
+          Borrowed Books
+        </NavLink> : ""
+         }
           <NavLink
             to="/contact"
             className={({ isActive }) =>

@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Helmet } from "react-helmet-async";
+import { Authcontext } from "../../Components/Home/AuthProvider/AuthProvider";
 
 const AllBooks = () => {
   const [books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [view, setView] = useState("card"); // Initial view set to 'card'
+  const [view, setView] = useState("card"); 
+  const {user} = useContext(Authcontext)
 
   useEffect(() => {
     axios
@@ -133,12 +135,14 @@ const AllBooks = () => {
                 <td className="border border-gray-300 px-4 py-2">{book.quantity}</td>
                 <td className="border border-gray-300 px-4 py-2">{book.rating}</td>
                 <td className="border border-gray-300 px-4 py-2">
-                  <Link
+                  {
+                    user && user?.email ? <Link
                     to={`/update/${book._id}`}
                     className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600"
                   >
                     Update
-                  </Link>
+                  </Link> : ''
+                  }
                 </td>
               </tr>
             ))}
