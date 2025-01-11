@@ -17,7 +17,7 @@
     2. React toastyfy.
     3. React Router.
     4. React.
-    5. React Helmet. 
+    5. React Helmet
 
 ## Key Features:
 
