@@ -28,9 +28,9 @@ const Footer = () => {
           {/* Contact Us */}
           <div>
             <h2 className="text-lg font-bold mb-2">Contact Us</h2>
-            <p className="text-sm">123 Library Street, BookTown</p>
-            <p className="text-sm">Phone: +123 456 789</p>
-            <p className="text-sm">Email: support@booknest.com</p>
+            <p className="text-sm">Dhaka,Bangladesh</p>
+            <p className="text-sm">Phone: +880 1761617765</p>
+            <p className="text-sm">Email: mdsiamislam663@gmail.com</p>
           </div>
         </div>
 

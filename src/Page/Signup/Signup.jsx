@@ -174,7 +174,7 @@ const Signup = () => {
               </div>
 
               <div className="form-control mt-6">
-                <button className="btn btn-warning">Sign up</button>
+                <button className="btn bg-blue-500 text-white font-semibold">Sign up</button>
               </div>
               <div className="divider">OR</div>
               <div className="form-control mt-6 mb-4">
@@ -191,7 +191,7 @@ const Signup = () => {
               <div>
                 <h1 className="font-semibold">
                   Already Have An Account?{" "}
-                  <Link to={"/login"} className="text-red-500">
+                  <Link to={"/login"} className="text-blue-500">
                     Login
                   </Link>
                 </h1>

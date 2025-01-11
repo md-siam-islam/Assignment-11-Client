@@ -95,6 +95,16 @@ const Navbar = () => {
           >
             Borrowed Books
           </NavLink>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) =>
+              isActive
+                ? "text-white font-bold border-2 px-4 py-2 rounded-xl bg-gradient-to-r from-blue-700 to-blue-700 hover:from-blue-700 hover:to-blue-500 transition-all duration-300"
+                : "text-white font-bold border-2 px-4 py-2 rounded-xl"
+            }
+          >
+            Contact Us
+          </NavLink>
         </div>
       </div>
 
@@ -102,12 +112,12 @@ const Navbar = () => {
       <div className="navbar-end">
         {user && user.email ? (
           <div className="flex items-center gap-2">
+
             <div className="relative group">
               <img
                 className="w-10 h-10 rounded-full border-2 border-blue-700"
                 src={user.photoURL}
-                alt="User Avatar"
-              />
+                alt="User Avatar"/>
               <div className="absolute top-full right-0 mt-2 hidden group-hover:flex flex-col items-center bg-gray-800 text-white text-sm rounded-lg px-4 py-3 shadow-lg z-50">
                 {user.displayName ? (
                   <>
@@ -124,6 +134,7 @@ const Navbar = () => {
                 )}
               </div>
             </div>
+
             <Link
               onClick={signoutUser}
               className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-3 rounded"

@@ -116,7 +116,7 @@ const Login = () => {
               </div>
 
               <div className="form-control mt-6">
-                <button className="btn btn-warning">Login</button>
+                <button className="btn bg-blue-500 text-white font-semibold">Login</button>
               </div>
 
               <div className="divider">OR</div>
@@ -135,7 +135,7 @@ const Login = () => {
 
               <h1 className="font-semibold text-center">
                 Don’t Have An Account?
-                <Link to={"/signup"} className="text-red-500">
+                <Link to={"/signup"} className="text-blue-500">
                   {" "}
                   Register
                 </Link>

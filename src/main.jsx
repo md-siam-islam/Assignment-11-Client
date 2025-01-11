@@ -17,6 +17,7 @@ import CategoriesBook from "./Page/CategoriesBook/CategoriesBook.jsx";
 import PrivetRoute from "./PrivetRoute/PrivetRoute.jsx";
 import BookDetails from "./Page/BookDetails/BookDetails.jsx";
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import Contact from "./ContactUsSection/Contact.jsx";
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
         path: "/borodedBooks",
         element: <PrivetRoute><BrrrodedBooks></BrrrodedBooks></PrivetRoute>,
       },
+      {
+        path:'/contact',
+        element:<Contact></Contact>
+      }
     ],
   },
   {
